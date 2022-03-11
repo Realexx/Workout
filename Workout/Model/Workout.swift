@@ -5,19 +5,30 @@
 //  Created by schlageter alex on 04/03/2022.
 //
 
-enum Type: String, CaseIterable {
-    case Bike = "Bike"
+import Foundation
+import SwiftUI
+
+enum Categorie: String, CaseIterable {
+    case Riding = "Riding"
     case Running = "Running"
     case Walking = "Walking"
     
+    var symbol: String {
+        switch self {
+        case .Riding:
+            return "🚲"
+        case .Running:
+            return "🐇"
+        case .Walking:
+            return "🚶🏻"
+        }
+    }
 }
-
-import Foundation
 
 struct Workout: Identifiable {
     var id = UUID()
     
-    var type: Type
+    var category: Category
     var time: String
     var distance: String
 }
