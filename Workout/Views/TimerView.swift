@@ -23,7 +23,7 @@ struct TimerView: View {
             
             Button(action: {self.stopWatchManager.start()}) {
                 TimerButton(label: "Go", ButtonColor: .orange)
-                        }
+            }
         }
         
     }
@@ -32,6 +32,7 @@ struct TimerView: View {
 struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
         TimerView()
+        
     }
 }
 
