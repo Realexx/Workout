@@ -15,10 +15,11 @@ struct TimerView: View {
         VStack {
             
             Spacer()
-            
-            Text(String(format: "%.1f", stopWatchManager.secondsElapsed))
+                
+            Text("\(stopWatchManager.hoursElapsed) : \(stopWatchManager.minutesElapsed) : \(stopWatchManager.secondsElapsed)")
                 .padding()
                 .font(.system(size: 40, weight: .medium))
+
             
             Text("0 m")
                 .padding()
