@@ -19,8 +19,6 @@ struct AppTabView: View {
                     Text("Timer")
                 }
             
-            
-            
             WorkoutsView()
                 .tabItem {
                     Image(systemName: "list.dash")
