@@ -22,11 +22,17 @@ final class MapModel : NSObject,ObservableObject,CLLocationManagerDelegate {
     
     var distance : Int = 0
     
+    
     func getUserLocation() {
         locationManager = CLLocationManager()
         locationManager?.delegate = self
         locationManager?.requestAlwaysAuthorization()
         locationManager?.startUpdatingLocation()
+        
+    // todo https://www.hackingwithswift.com/quick-start/swiftui/how-to-read-the-users-location-using-locationbutton
+        let coord = locationManager?.location != nil ? self.locationManager?.location!.coordinate : CLLocationCoordinate2D()
+
+    
     }
     
     

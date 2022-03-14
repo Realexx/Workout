@@ -9,9 +9,11 @@ import SwiftUI
 
 struct TimerView: View {
     @ObservedObject var stopWatchManager = StopWatchManager()
-    @StateObject var viewModel = MapModel()
+    @ObservedObject var viewModel = MapModel()
     
     var body: some View {
+        
+        
         VStack {
             
             Spacer()
