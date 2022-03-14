@@ -18,7 +18,7 @@
 		18DA8C4627D1F50300487E58 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18DA8C4527D1F50300487E58 /* Preview Assets.xcassets */; };
 		5F2193A627DB36C8008DE4A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2193A527DB36C8008DE4A2 /* ViewController.swift */; };
 		5F2193A827DB46DB008DE4A2 /* mapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2193A727DB46DB008DE4A2 /* mapView.swift */; };
-		5F2193AA27DB4D5F008DE4A2 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2193A927DB4D5F008DE4A2 /* Map.swift */; };
+		5F2193AA27DB4D5F008DE4A2 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2193A927DB4D5F008DE4A2 /* MapModel.swift */; };
 		5FEFF51727D1FA220016F525 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEFF51627D1FA220016F525 /* ProfileView.swift */; };
 		5FEFF51927D1FC090016F525 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEFF51827D1FC090016F525 /* User.swift */; };
 		5FEFF51B27D1FDF80016F525 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEFF51A27D1FDF80016F525 /* ProfileViewModel.swift */; };
@@ -38,7 +38,7 @@
 		5F2193A427DB3009008DE4A2 /* customLocation.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = customLocation.gpx; sourceTree = "<group>"; };
 		5F2193A527DB36C8008DE4A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5F2193A727DB46DB008DE4A2 /* mapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapView.swift; sourceTree = "<group>"; };
-		5F2193A927DB4D5F008DE4A2 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		5F2193A927DB4D5F008DE4A2 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 		5FEFF51627D1FA220016F525 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		5FEFF51827D1FC090016F525 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5FEFF51A27D1FDF80016F525 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 			children = (
 				5FEFF51827D1FC090016F525 /* User.swift */,
 				1840412B27DB2CD900C8EC03 /* Workout.swift */,
-				5F2193A927DB4D5F008DE4A2 /* Map.swift */,
+				5F2193A927DB4D5F008DE4A2 /* MapModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -198,7 +198,7 @@
 			files = (
 				1840412627DB2C3400C8EC03 /* TimerView.swift in Sources */,
 				1840412827DB2C6700C8EC03 /* StopWatchManager.swift in Sources */,
-				5F2193AA27DB4D5F008DE4A2 /* Map.swift in Sources */,
+				5F2193AA27DB4D5F008DE4A2 /* MapModel.swift in Sources */,
 				1840412A27DB2CA000C8EC03 /* WorkoutsView.swift in Sources */,
 				1840412C27DB2CD900C8EC03 /* Workout.swift in Sources */,
 				5F2193A627DB36C8008DE4A2 /* ViewController.swift in Sources */,

@@ -6,16 +6,21 @@
 //
 
 import MapKit
+import CoreLocation
+import Foundation
+
 enum MapDetails{
     static let startingLocation = CLLocationCoordinate2D(latitude: 37.331516, longitude: -121.891054)
-    static let defaultSpan = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
+    static let defaultSpan = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
 }
 
-final class ContentViewModel : NSObject,ObservableObject,CLLocationManagerDelegate {
+final class MapModel : NSObject,ObservableObject,CLLocationManagerDelegate {
     
     @Published var region = MKCoordinateRegion(center: MapDetails.startingLocation, span: MapDetails.defaultSpan)
     
     var locationManager : CLLocationManager?
+    
+    var distance : Int = 0
     
     func getUserLocation() {
         locationManager = CLLocationManager()
@@ -23,6 +28,7 @@ final class ContentViewModel : NSObject,ObservableObject,CLLocationManagerDelega
         locationManager?.requestAlwaysAuthorization()
         locationManager?.startUpdatingLocation()
     }
+    
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
@@ -39,7 +45,7 @@ final class ContentViewModel : NSObject,ObservableObject,CLLocationManagerDelega
         }
     }
     
-    func checkLocationAuthorization(){
+    private func checkLocationAuthorization(){
         guard let locationManager = locationManager else {
             return
         }
@@ -50,9 +56,9 @@ final class ContentViewModel : NSObject,ObservableObject,CLLocationManagerDelega
         case .restricted:
             print("Your location is restricted ")
         case .denied:
-            print("You dare denied !")
-        case .authorizedAlways,.authorizedWhenInUse:
-            region = MKCoordinateRegion(center: locationManager.location!.coordinate, span: MapDetails.defaultSpan)
+            print("You dare to denied !")
+        case .authorizedAlways, .authorizedWhenInUse:
+            region = MKCoordinateRegion(center:locationManager.location!.coordinate , span: MapDetails.defaultSpan)
         @unknown default:
             break
         }

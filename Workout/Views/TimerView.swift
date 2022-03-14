@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TimerView: View {
     @ObservedObject var stopWatchManager = StopWatchManager()
+    @StateObject var viewModel = MapModel()
     
     var body: some View {
         VStack {
@@ -16,6 +17,10 @@ struct TimerView: View {
             Spacer()
             
             Text(String(format: "%.1f", stopWatchManager.secondsElapsed))
+                .padding()
+                .font(.system(size: 40, weight: .medium))
+            
+            Text("\(0) m")
                 .padding()
                 .font(.system(size: 40, weight: .medium))
             
