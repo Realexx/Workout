@@ -9,6 +9,11 @@ import MapKit
 import CoreLocation
 import Foundation
 
+struct MyAnnotationItem: Identifiable{
+    var coordinate : CLLocationCoordinate2D
+    let id = UUID()
+}
+
 enum MapDetails{
     static let startingLocation = CLLocationCoordinate2D(latitude: 37.331516, longitude: -121.891054)
     static let defaultSpan = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
@@ -22,16 +27,32 @@ final class MapModel : NSObject,ObservableObject,CLLocationManagerDelegate {
     
     var distance : Int = 0
     
+    var annotationsItems = [
+        MyAnnotationItem(coordinate: CLLocationCoordinate2D(
+            latitude: -119.891054, longitude: -121.891054
+        ))
+    ]
     
     func getUserLocation() {
         locationManager = CLLocationManager()
         locationManager?.delegate = self
         locationManager?.requestAlwaysAuthorization()
         locationManager?.startUpdatingLocation()
+        /*
+    // todo cool https://www.hackingwithswift.com/quick-start/swiftui/how-to-read-the-users-location-using-locationbutton
         
-    // todo https://www.hackingwithswift.com/quick-start/swiftui/how-to-read-the-users-location-using-locationbutton
+        // todo pins https://www.mongodb.com/developer/how-to/realm-swiftui-maps-location/
+         
+         // Distance between pin and user
+         https://stackoverflow.com/questions/44139786/calculate-distance-between-my-location-and-a-mapkit-pin-on-swift
+         
+         // vidéo :
+         https://www.youtube.com/watch?v=vfWxwDfX30I
+         
+         */
+        
         let coord = locationManager?.location != nil ? self.locationManager?.location!.coordinate : CLLocationCoordinate2D()
-
+        
     
     }
     
