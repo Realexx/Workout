@@ -20,7 +20,7 @@ enum MapDetails{
 }
 
 final class MapModel : NSObject,ObservableObject,CLLocationManagerDelegate {
-    
+    // MKCoordianteRegion correspond a la variable qui observera le changement de localisation de la part de l'utilisateur
     @Published var region = MKCoordinateRegion(center: MapDetails.startingLocation, span: MapDetails.defaultSpan)
     
     var locationManager : CLLocationManager?
@@ -58,9 +58,13 @@ final class MapModel : NSObject,ObservableObject,CLLocationManagerDelegate {
     
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.last {
-            print("Lat : \(location.coordinate.latitude) \nLng : \(location.coordinate.longitude)")
-        }
+        // Code qui traque la localisation de l'utilisateur
+        locations.last.map {
+                    region = MKCoordinateRegion(
+                        center: CLLocationCoordinate2D(latitude: $0.coordinate.latitude, longitude: $0.coordinate.longitude),
+                        span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
+                    )
+                }
     }
     
     func checkIfLocationServicesIsEnabled(){

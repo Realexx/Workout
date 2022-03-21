@@ -12,11 +12,7 @@ struct mapView: View {
     @StateObject private var viewModel = MapModel()
     
     var body: some View {
-        Map(coordinateRegion: $viewModel.region, showsUserLocation: true,
-            annotationItems: $viewModel.annotationsItems) {
-            annotation in MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude))
-            
-        }
+        Map(coordinateRegion: $viewModel.region, showsUserLocation: true)
         
     }
 }

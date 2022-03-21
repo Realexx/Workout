@@ -10,12 +10,9 @@ import SwiftUI
 struct TimerView: View {
     @ObservedObject var stopWatchManager = StopWatchManager()
     @ObservedObject var viewModel = MapModel()
-    
+    @State var categorie: Categorie = .Riding
     var body: some View {
-        
-        
         VStack {
-            
             Spacer()
             
             Text(String(format: "%.1f", stopWatchManager.secondsElapsed))
@@ -28,11 +25,38 @@ struct TimerView: View {
             
             Spacer()
             
-            Button(action: {self.stopWatchManager.start()}) {
-                TimerButton(label: "Go", ButtonColor: .orange)
+            Picker("Categorie", selection: $categorie){
+                ForEach(Categorie.allCases, id: \.self){categorie in
+                    Text(categorie.symbol)
+                }
             }
-        }
+            .pickerStyle(SegmentedPickerStyle())
+            .frame(width: 350)
+            
+            if stopWatchManager.mode == .stopped {
+                Button(action: {self.stopWatchManager.start()}) {
+                    TimerButton(label: "⏱ Go", ButtonColor: .orange)
+                }
+            }
+            
+            if stopWatchManager.mode == .running {
+                Button(action: {self.stopWatchManager.pause()}) {
+                                TimerButton(label: "⏸ Pause", ButtonColor: .red)
+                }
+            }
+            
+            HStack {
+                if stopWatchManager.mode == .paused {
+                    Button(action: {self.stopWatchManager.start()}) {
+                        TimerButton(label: "⏩ Resume", ButtonColor: .orange)
+                    }
+                    Button(action: {self.stopWatchManager.stop()}) {
+                        TimerButton(label: "⏹ Stop", ButtonColor: .red)
+                    }
+                }
+            }
         
+        }
     }
 }
 
