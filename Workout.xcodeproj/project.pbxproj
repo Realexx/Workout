@@ -80,7 +80,6 @@
 				5FEFF51527D1F9260016F525 /* Views */,
 				18DA8C3E27D1F50200487E58 /* WorkoutApp.swift */,
 				1840412727DB2C6700C8EC03 /* StopWatchManager.swift */,
-				18DA8C4227D1F50300487E58 /* Assets.xcassets */,
 				18DA8C4427D1F50300487E58 /* Preview Content */,
 			);
 			path = Workout;
@@ -89,7 +88,7 @@
 		18DA8C4427D1F50300487E58 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				18DA8C4527D1F50300487E58 /* Preview Assets.xcassets */,
+				18DA8C4527D1F50300487E58 /* 151913.png */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -184,8 +183,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18DA8C4627D1F50300487E58 /* Preview Assets.xcassets in Resources */,
-				18DA8C4327D1F50300487E58 /* Assets.xcassets in Resources */,
+				18DA8C4627D1F50300487E58 /* 151913.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
