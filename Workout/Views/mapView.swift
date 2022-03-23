@@ -12,12 +12,15 @@ struct mapView: View {
     @StateObject private var viewModel = ContentViewModel()
     
     var body: some View {
-        Map(coordinateRegion: $viewModel.region, showsUserLocation: true)
+        Map(coordinateRegion: $viewModel.region, showsUserLocation: true, annotationItems: viewModel.annotationsItems){
+            pin in MapPin(coordinate: pin.coordinate, tint: .accentColor)
+        }
             .ignoresSafeArea()
             .accentColor(.pink)
             .onAppear{
                 viewModel.checkIfLocationServicesIsEnabled()
             }
+        
     }
 }
 

@@ -5,6 +5,12 @@
 //  Created by karim ounis on 11/03/2022.
 //
 
+struct MyAnnotationItem: Identifiable{
+    var coordinate : CLLocationCoordinate2D
+    let id = UUID()
+}
+
+
 import MapKit
 enum MapDetails{
     static let startingLocation = CLLocationCoordinate2D(latitude: 37.331516, longitude: -121.891054)
@@ -17,18 +23,45 @@ final class ContentViewModel : NSObject,ObservableObject,CLLocationManagerDelega
     
     var locationManager : CLLocationManager?
     
+    let sourceCoordinate = CLLocationCoordinate2D(latitude: 13.086, longitude: 80.2707)
+
+    var annotationsItems : [MyAnnotationItem] = [MyAnnotationItem(coordinate: CLLocationCoordinate2D(
+        latitude: -119.891054, longitude: -121.891054
+     ))]
+    
+    /*
+     MyAnnotationItem(coordinate: CLLocationCoordinate2D(
+         latitude: -119.891054, longitude: -121.891054
+      ))
+     */
+    
     func getUserLocation() {
+        locationManager?.requestLocation()
+        /*
         locationManager = CLLocationManager()
         locationManager?.delegate = self
         locationManager?.requestAlwaysAuthorization()
         locationManager?.startUpdatingLocation()
+         */
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.last {
-            print("Lat : \(location.coordinate.latitude) \nLng : \(location.coordinate.longitude)")
+        
+        guard let latestLocation = locations.first else {
+            // Erreur
+            return
+        }
+        
+        DispatchQueue.main.async {
+            self.region = MKCoordinateRegion(center: latestLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
         }
     }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error){
+        print(error.localizedDescription)
+    }
+    
+    
     
     func checkIfLocationServicesIsEnabled(){
         if CLLocationManager.locationServicesEnabled(){

@@ -10,8 +10,6 @@ import SwiftUI
 struct AppTabView: View {
     var body: some View {
         
-        
-       
         TabView {
             TimerView()
                 .tabItem {

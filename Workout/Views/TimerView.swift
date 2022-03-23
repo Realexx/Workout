@@ -10,9 +10,13 @@ import SwiftUI
 struct TimerView: View {
     @ObservedObject var stopWatchManager = StopWatchManager()
     @State var categorie: Categorie = .Riding
+    @StateObject private var map = ContentViewModel()
+    
     
     var body: some View {
         VStack {
+            
+            Text(categorie.rawValue)
             
             Spacer()
                 
@@ -38,6 +42,8 @@ struct TimerView: View {
             if stopWatchManager.mode == .stopped {
                 Button(action: {self.stopWatchManager.start()}) {
                     TimerButton(label: "⏱ Go", ButtonColor: .orange)
+                    // lancement de la simulation
+                    
                 }
             }
             
