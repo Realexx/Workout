@@ -13,12 +13,10 @@
 		1840412A27DB2CA000C8EC03 /* WorkoutsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840412927DB2CA000C8EC03 /* WorkoutsView.swift */; };
 		1840412C27DB2CD900C8EC03 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840412B27DB2CD900C8EC03 /* Workout.swift */; };
 		18DA8C3F27D1F50200487E58 /* WorkoutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA8C3E27D1F50200487E58 /* WorkoutApp.swift */; };
-		18DA8C4127D1F50200487E58 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA8C4027D1F50200487E58 /* ContentView.swift */; };
-		18DA8C4327D1F50300487E58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18DA8C4227D1F50300487E58 /* Assets.xcassets */; };
 		18DA8C4627D1F50300487E58 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18DA8C4527D1F50300487E58 /* Preview Assets.xcassets */; };
-		5F2193A627DB36C8008DE4A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2193A527DB36C8008DE4A2 /* ViewController.swift */; };
+		5F2193A627DB36C8008DE4A2 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2193A527DB36C8008DE4A2 /* MapViewModel.swift */; };
 		5F2193A827DB46DB008DE4A2 /* mapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2193A727DB46DB008DE4A2 /* mapView.swift */; };
-		5F2193AA27DB4D5F008DE4A2 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2193A927DB4D5F008DE4A2 /* Map.swift */; };
+		5F2193AA27DB4D5F008DE4A2 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2193A927DB4D5F008DE4A2 /* MapModel.swift */; };
 		5FEFF51727D1FA220016F525 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEFF51627D1FA220016F525 /* ProfileView.swift */; };
 		5FEFF51927D1FC090016F525 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEFF51827D1FC090016F525 /* User.swift */; };
 		5FEFF51B27D1FDF80016F525 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEFF51A27D1FDF80016F525 /* ProfileViewModel.swift */; };
@@ -32,13 +30,11 @@
 		1840412B27DB2CD900C8EC03 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		18DA8C3B27D1F50200487E58 /* Workout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DA8C3E27D1F50200487E58 /* WorkoutApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutApp.swift; sourceTree = "<group>"; };
-		18DA8C4027D1F50200487E58 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		18DA8C4227D1F50300487E58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18DA8C4527D1F50300487E58 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5F2193A427DB3009008DE4A2 /* customLocation.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = customLocation.gpx; sourceTree = "<group>"; };
-		5F2193A527DB36C8008DE4A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5F2193A527DB36C8008DE4A2 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		5F2193A727DB46DB008DE4A2 /* mapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapView.swift; sourceTree = "<group>"; };
-		5F2193A927DB4D5F008DE4A2 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		5F2193A927DB4D5F008DE4A2 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 		5FEFF51627D1FA220016F525 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		5FEFF51827D1FC090016F525 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5FEFF51A27D1FDF80016F525 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -75,8 +71,8 @@
 			isa = PBXGroup;
 			children = (
 				5F2193A427DB3009008DE4A2 /* customLocation.gpx */,
-				5FEFF51327D1F9180016F525 /* Model */,
 				5FEFF51427D1F91F0016F525 /* ViewModel */,
+				5FEFF51327D1F9180016F525 /* Model */,
 				5FEFF51527D1F9260016F525 /* Views */,
 				18DA8C3E27D1F50200487E58 /* WorkoutApp.swift */,
 				1840412727DB2C6700C8EC03 /* StopWatchManager.swift */,
@@ -88,7 +84,7 @@
 		18DA8C4427D1F50300487E58 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				18DA8C4527D1F50300487E58 /* 151913.png */,
+				18DA8C4527D1F50300487E58 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -98,7 +94,7 @@
 			children = (
 				5FEFF51827D1FC090016F525 /* User.swift */,
 				1840412B27DB2CD900C8EC03 /* Workout.swift */,
-				5F2193A927DB4D5F008DE4A2 /* Map.swift */,
+				5F2193A927DB4D5F008DE4A2 /* MapModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -107,7 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				5FEFF51A27D1FDF80016F525 /* ProfileViewModel.swift */,
-				5F2193A527DB36C8008DE4A2 /* ViewController.swift */,
+				5F2193A527DB36C8008DE4A2 /* MapViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -115,7 +111,6 @@
 		5FEFF51527D1F9260016F525 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				18DA8C4027D1F50200487E58 /* ContentView.swift */,
 				5FEFF51627D1FA220016F525 /* ProfileView.swift */,
 				1840412327DB2BF000C8EC03 /* AppTabView.swift */,
 				1840412527DB2C3400C8EC03 /* TimerView.swift */,
@@ -183,7 +178,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18DA8C4627D1F50300487E58 /* 151913.png in Resources */,
+				18DA8C4627D1F50300487E58 /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,13 +191,12 @@
 			files = (
 				1840412627DB2C3400C8EC03 /* TimerView.swift in Sources */,
 				1840412827DB2C6700C8EC03 /* StopWatchManager.swift in Sources */,
-				5F2193AA27DB4D5F008DE4A2 /* Map.swift in Sources */,
+				5F2193AA27DB4D5F008DE4A2 /* MapModel.swift in Sources */,
 				1840412A27DB2CA000C8EC03 /* WorkoutsView.swift in Sources */,
 				1840412C27DB2CD900C8EC03 /* Workout.swift in Sources */,
-				5F2193A627DB36C8008DE4A2 /* ViewController.swift in Sources */,
+				5F2193A627DB36C8008DE4A2 /* MapViewModel.swift in Sources */,
 				5F2193A827DB46DB008DE4A2 /* mapView.swift in Sources */,
 				1840412427DB2BF000C8EC03 /* AppTabView.swift in Sources */,
-				18DA8C4127D1F50200487E58 /* ContentView.swift in Sources */,
 				18DA8C3F27D1F50200487E58 /* WorkoutApp.swift in Sources */,
 				5FEFF51727D1FA220016F525 /* ProfileView.swift in Sources */,
 				5FEFF51927D1FC090016F525 /* User.swift in Sources */,
@@ -339,7 +333,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Workout/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location needed :)";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Press accept plz";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -368,7 +362,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Workout/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Location needed :)";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Press accept plz";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -17,34 +17,49 @@ enum MapDetails{
     static let defaultSpan = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
 }
 
-final class ContentViewModel : NSObject,ObservableObject,CLLocationManagerDelegate {
+final class MapModel : NSObject,ObservableObject,CLLocationManagerDelegate {
     
     @Published var region = MKCoordinateRegion(center: MapDetails.startingLocation, span: MapDetails.defaultSpan)
     
     var locationManager : CLLocationManager?
-    
-    let sourceCoordinate = CLLocationCoordinate2D(latitude: 13.086, longitude: 80.2707)
 
-    var annotationsItems : [MyAnnotationItem] = [MyAnnotationItem(coordinate: CLLocationCoordinate2D(
-        latitude: -119.891054, longitude: -121.891054
-     ))]
+    var annotationsItems : [MyAnnotationItem] = []
+    
+    var dist : Int = 0 
     
     /*
      MyAnnotationItem(coordinate: CLLocationCoordinate2D(
          latitude: -119.891054, longitude: -121.891054
       ))
-     */
+     
     
     func getUserLocation() {
-        locationManager?.requestLocation()
-        /*
         locationManager = CLLocationManager()
         locationManager?.delegate = self
         locationManager?.requestAlwaysAuthorization()
         locationManager?.startUpdatingLocation()
-         */
+
+        // todo https://www.hackingwithswift.com/quick-start/swiftui/how-to-read-the-users-location-using-locationbutton
+        let coord = locationManager?.location != nil ? self.locationManager?.location!.coordinate : CLLocationCoordinate2D()
+    }
+     */
+    
+    func startRecord(){
+        createPin(coordinate: region.center)
+        //dist = distance(to: region.center,)(,)
     }
     
+    func stopRecord(){
+        createPin(coordinate: region.center)
+        // Tracer la ligne : https://www.youtube.com/watch?v=A4x8EfPmkqI&t=50s
+    }
+    
+    func createPin(coordinate : CLLocationCoordinate2D){
+        annotationsItems.append(MyAnnotationItem(coordinate: coordinate))
+    }
+    
+    
+    //
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         guard let latestLocation = locations.first else {
@@ -52,8 +67,10 @@ final class ContentViewModel : NSObject,ObservableObject,CLLocationManagerDelega
             return
         }
         
+        // update the region with the location (user)
         DispatchQueue.main.async {
             self.region = MKCoordinateRegion(center: latestLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
+            
         }
     }
     
@@ -62,7 +79,7 @@ final class ContentViewModel : NSObject,ObservableObject,CLLocationManagerDelega
     }
     
     
-    
+    // Locations services
     func checkIfLocationServicesIsEnabled(){
         if CLLocationManager.locationServicesEnabled(){
             locationManager = CLLocationManager()
@@ -76,8 +93,9 @@ final class ContentViewModel : NSObject,ObservableObject,CLLocationManagerDelega
         guard let locationManager = locationManager else {
             return
         }
+        
         switch locationManager.authorizationStatus{
-
+            
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
         case .restricted:
@@ -85,7 +103,9 @@ final class ContentViewModel : NSObject,ObservableObject,CLLocationManagerDelega
         case .denied:
             print("You dare denied !")
         case .authorizedAlways,.authorizedWhenInUse:
-            region = MKCoordinateRegion(center: locationManager.location!.coordinate, span: MapDetails.defaultSpan)
+            //region = MKCoordinateRegion(center: locationManager.location!.coordinate, span: MapDetails.defaultSpan)
+            break
+
         @unknown default:
             break
         }

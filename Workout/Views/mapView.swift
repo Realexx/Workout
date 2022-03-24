@@ -9,24 +9,27 @@ import SwiftUI
 import MapKit
 
 struct mapView: View {
-    @StateObject private var viewModel = ContentViewModel()
+    
+    @StateObject var mapData : MapModel
     
     var body: some View {
-        Map(coordinateRegion: $viewModel.region, showsUserLocation: true, annotationItems: viewModel.annotationsItems){
+        Map(coordinateRegion: $mapData.region, showsUserLocation: true, annotationItems: mapData.annotationsItems){
             pin in MapPin(coordinate: pin.coordinate, tint: .accentColor)
         }
             .ignoresSafeArea()
             .accentColor(.pink)
             .onAppear{
-                viewModel.checkIfLocationServicesIsEnabled()
+                mapData.checkIfLocationServicesIsEnabled()
             }
         
     }
+    
+    
 }
 
 struct mapView_Previews: PreviewProvider {
     static var previews: some View {
-        mapView()
+        mapView(mapData: MapModel())
     }
 }
 

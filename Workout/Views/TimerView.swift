@@ -10,7 +10,8 @@ import SwiftUI
 struct TimerView: View {
     @ObservedObject var stopWatchManager = StopWatchManager()
     @State var categorie: Categorie = .Riding
-    @StateObject private var map = ContentViewModel()
+    @StateObject private var map = MapModel()
+    @State var mapViewModel : MapViewModel
     
     
     var body: some View {
@@ -25,7 +26,7 @@ struct TimerView: View {
                 .font(.system(size: 40, weight: .medium))
 
             
-            Text("0 m")
+            Text("\(mapViewModel.distance) m")
                 .padding()
                 .font(.system(size: 40, weight: .medium))
             
@@ -40,15 +41,21 @@ struct TimerView: View {
             .frame(width: 350)
             
             if stopWatchManager.mode == .stopped {
-                Button(action: {self.stopWatchManager.start()}) {
-                    TimerButton(label: "⏱ Go", ButtonColor: .orange)
+                Button(action: {
+                    self.stopWatchManager.start()
                     // lancement de la simulation
-                    
+                    mapViewModel.startRecord()
+                }){
+                    TimerButton(label: "⏱ Go", ButtonColor: .orange)
                 }
             }
             
             if stopWatchManager.mode == .running {
-                Button(action: {self.stopWatchManager.pause()}) {
+                Button(action: {
+                    self.stopWatchManager.pause()
+                    
+                    
+                }) {
                                 TimerButton(label: "⏸ Pause", ButtonColor: .red)
                 }
             }
@@ -58,7 +65,11 @@ struct TimerView: View {
                     Button(action: {self.stopWatchManager.start()}) {
                         TimerButton(label: "⏩ Resume", ButtonColor: .orange)
                     }
-                    Button(action: {self.stopWatchManager.stop()}) {
+                    Button(action: {
+                        self.stopWatchManager.stop()
+                        
+                        mapViewModel.stopRecord()
+                    }) {
                         TimerButton(label: "⏹ Stop", ButtonColor: .red)
                     }
                 }
@@ -71,7 +82,7 @@ struct TimerView: View {
 
 struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
-        TimerView()
+        TimerView(mapViewModel: MapViewModel())
         
     }
 }

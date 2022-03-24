@@ -8,16 +8,17 @@
 import SwiftUI
 
 struct AppTabView: View {
+    @EnvironmentObject var mapViewModel : MapViewModel
+    
     var body: some View {
-        
         TabView {
-            TimerView()
+            TimerView(mapViewModel: mapViewModel)
                 .tabItem {
                     Image(systemName: "timer")
                     Text("Timer")
                 }
             
-            WorkoutsView()
+            WorkoutsView(mapViewModel: mapViewModel)
                 .tabItem {
                     Image(systemName: "list.dash")
                     Text("Workouts")
@@ -35,5 +36,6 @@ struct AppTabView: View {
 struct AppTabView_Previews: PreviewProvider {
     static var previews: some View {
         AppTabView()
+
     }
 }

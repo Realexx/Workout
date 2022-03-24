@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct WorkoutsView: View {
+    @State var mapViewModel : MapViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        mapView(mapData: mapViewModel.maps.last!)
     }
 }
 
 struct WorkoutsView_Previews: PreviewProvider {
     static var previews: some View {
-        WorkoutsView()
+        WorkoutsView(mapViewModel: MapViewModel())
     }
 }
