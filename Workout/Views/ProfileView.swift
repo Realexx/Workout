@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
     
-    @EnvironmentObject var userData : ProfileViewModel
+    @State var userData : ProfileViewModel
     @State var firstName: String = ""
     @State var lastName: String = ""
     @State var birth = Date()
@@ -62,7 +62,7 @@ struct ProfileView: View {
 struct addProfilView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-            ProfileView()
+            ProfileView(userData: ProfileViewModel(), firstName: "", lastName: "", birth: Date(), sexe: .female)
         }
     }
 }

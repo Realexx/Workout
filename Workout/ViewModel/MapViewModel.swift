@@ -22,7 +22,6 @@ class MapViewModel: NSObject,ObservableObject,CLLocationManagerDelegate{
         
         
     }
-  
     
     func startRecord(){
         print("Test StartRecord")
@@ -30,7 +29,6 @@ class MapViewModel: NSObject,ObservableObject,CLLocationManagerDelegate{
         map.startRecord()
         maps.append(map)
         distance = map.dist
-        
     }
     
     func stopRecord(){

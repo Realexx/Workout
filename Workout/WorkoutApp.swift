@@ -11,7 +11,7 @@ import SwiftUI
 struct WorkoutApp: App {
     var body: some Scene {
         WindowGroup {
-            AppTabView().environmentObject(MapViewModel())
+            AppTabView(mapViewModel: MapViewModel())
         }
     }
 }
