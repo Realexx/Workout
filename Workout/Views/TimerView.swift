@@ -15,6 +15,7 @@ struct TimerView: View {
     
     
     var body: some View {
+        
         VStack {
             
             Text(categorie.rawValue)
@@ -26,7 +27,7 @@ struct TimerView: View {
                 .font(.system(size: 40, weight: .medium))
 
             
-            Text("\(mapViewModel.distance) m")
+            Text("\(mapViewModel.maps.last!.dist) m")
                 .padding()
                 .font(.system(size: 40, weight: .medium))
             
@@ -53,16 +54,20 @@ struct TimerView: View {
             if stopWatchManager.mode == .running {
                 Button(action: {
                     self.stopWatchManager.pause()
+                    mapViewModel.pauseRecord()
                     
                     
                 }) {
-                                TimerButton(label: "⏸ Pause", ButtonColor: .red)
+                    TimerButton(label: "⏸ Pause", ButtonColor: .red)
                 }
             }
             
             HStack {
                 if stopWatchManager.mode == .paused {
-                    Button(action: {self.stopWatchManager.start()}) {
+                    Button(action: {
+                        self.stopWatchManager.start()
+                        mapViewModel.startRecord()
+                    }) {
                         TimerButton(label: "⏩ Resume", ButtonColor: .orange)
                     }
                     Button(action: {

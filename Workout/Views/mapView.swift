@@ -13,6 +13,7 @@ struct mapView: View {
     @StateObject var mapData : MapModel
     
     var body: some View {
+        
         Map(coordinateRegion: $mapData.region, showsUserLocation: true, annotationItems: mapData.annotationsItems){
             pin in MapPin(coordinate: pin.coordinate, tint: .accentColor)
         }

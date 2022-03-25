@@ -14,7 +14,7 @@ struct MyAnnotationItem: Identifiable{
 import MapKit
 enum MapDetails{
     static let startingLocation = CLLocationCoordinate2D(latitude: 37.331516, longitude: -121.891054)
-    static let defaultSpan = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
+    static let defaultSpan = MKCoordinateSpan(latitudeDelta: 0.25, longitudeDelta: 0.25)
 }
 
 final class MapModel : NSObject,ObservableObject,CLLocationManagerDelegate {
@@ -25,14 +25,16 @@ final class MapModel : NSObject,ObservableObject,CLLocationManagerDelegate {
 
     var annotationsItems : [MyAnnotationItem] = []
     
-    var dist : Int = 0 
+    var stopUpdate = true
     
-    /*
-     MyAnnotationItem(coordinate: CLLocationCoordinate2D(
-         latitude: -119.891054, longitude: -121.891054
-      ))
-     
+    var dist : Double = 0
+    @Published var location: CLLocation?
     
+
+    override init(){
+        super.init()
+        locationManager?.delegate = self
+    }
     func getUserLocation() {
         locationManager = CLLocationManager()
         locationManager?.delegate = self
@@ -40,19 +42,47 @@ final class MapModel : NSObject,ObservableObject,CLLocationManagerDelegate {
         locationManager?.startUpdatingLocation()
 
         // todo https://www.hackingwithswift.com/quick-start/swiftui/how-to-read-the-users-location-using-locationbutton
-        let coord = locationManager?.location != nil ? self.locationManager?.location!.coordinate : CLLocationCoordinate2D()
+       // let coord = locationManager?.location != nil ? self.locationManager?.location!.coordinate : CLLocationCoordinate2D()
     }
-     */
+     
     
     func startRecord(){
+        guard let locationManager = locationManager else {
+            return
+        }
+        stopUpdate = false
+        
+        locationManager.startUpdatingLocation()
+
         createPin(coordinate: region.center)
+        print("Debug startRecord",region.center.latitude,"+",region.center.longitude)
         //dist = distance(to: region.center,)(,)
     }
     
     func stopRecord(){
+        guard let locationManager = locationManager else {
+            return
+        }
+        locationManager.stopUpdatingLocation()
         createPin(coordinate: region.center)
+        
+        stopUpdate = true
+        
+        dist = 0 
+        
+        print("Debug stopRecord",region.center.latitude,"+",region.center.longitude)
         // Tracer la ligne : https://www.youtube.com/watch?v=A4x8EfPmkqI&t=50s
     }
+    
+    func pauseRecord(){
+        guard let locationManager = locationManager else {
+            return
+        }
+        stopUpdate = false
+        locationManager.stopUpdatingLocation()
+    }
+    
+    
     
     func createPin(coordinate : CLLocationCoordinate2D){
         annotationsItems.append(MyAnnotationItem(coordinate: coordinate))
@@ -69,9 +99,18 @@ final class MapModel : NSObject,ObservableObject,CLLocationManagerDelegate {
         
         // update the region with the location (user)
         DispatchQueue.main.async {
-            self.region = MKCoordinateRegion(center: latestLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
+            
+            
+            self.region = MKCoordinateRegion(center: latestLocation.coordinate, span: MapDetails.defaultSpan)
+            if(!(self.annotationsItems.isEmpty || self.stopUpdate)){
+                self.dist = self.getDistance(depart: self.annotationsItems.first!.coordinate, arrive: latestLocation.coordinate)
+            }
             
         }
+    }
+    
+    func getDistance(depart : CLLocationCoordinate2D, arrive: CLLocationCoordinate2D ) -> Double{
+        MKMapPoint(depart).distance(to: MKMapPoint(arrive))
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error){
@@ -102,7 +141,10 @@ final class MapModel : NSObject,ObservableObject,CLLocationManagerDelegate {
             print("Your location is restricted ")
         case .denied:
             print("You dare denied !")
+            locationManager.stopUpdatingLocation()
         case .authorizedAlways,.authorizedWhenInUse:
+            locationManager.startUpdatingLocation()
+            //print("Test checkLocation ",locationManager.location)
             //region = MKCoordinateRegion(center: locationManager.location!.coordinate, span: MapDetails.defaultSpan)
             break
 
