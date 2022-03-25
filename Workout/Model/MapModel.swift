@@ -14,7 +14,7 @@ struct MyAnnotationItem: Identifiable{
 import MapKit
 enum MapDetails{
     static let startingLocation = CLLocationCoordinate2D(latitude: 37.331516, longitude: -121.891054)
-    static let defaultSpan = MKCoordinateSpan(latitudeDelta: 0.25, longitudeDelta: 0.25)
+    static let defaultSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
 }
 
 final class MapModel : NSObject,ObservableObject,CLLocationManagerDelegate {

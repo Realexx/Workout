@@ -42,6 +42,10 @@ class MapViewModel: NSObject,ObservableObject,CLLocationManagerDelegate{
         print("Test StopRecord")
         let map = maps.last
         map?.stopRecord()
+        
+        var work = Workout.workoutsData.first!
+        work.distance = distance
+        
     }
     
     func pauseRecord(){
