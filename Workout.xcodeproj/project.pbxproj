@@ -12,6 +12,9 @@
 		1840412827DB2C6700C8EC03 /* StopWatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840412727DB2C6700C8EC03 /* StopWatchManager.swift */; };
 		1840412A27DB2CA000C8EC03 /* WorkoutsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840412927DB2CA000C8EC03 /* WorkoutsView.swift */; };
 		1840412C27DB2CD900C8EC03 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1840412B27DB2CD900C8EC03 /* Workout.swift */; };
+		18C75E1627EDAD3E00A65215 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C75E1527EDAD3E00A65215 /* DetailView.swift */; };
+		18C75E1827EDB73C00A65215 /* WorkoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C75E1727EDB73C00A65215 /* WorkoutViewModel.swift */; };
+		18C75E1A27EDB80400A65215 /* WorkoutRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C75E1927EDB80400A65215 /* WorkoutRowView.swift */; };
 		18DA8C3F27D1F50200487E58 /* WorkoutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DA8C3E27D1F50200487E58 /* WorkoutApp.swift */; };
 		18DA8C4627D1F50300487E58 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18DA8C4527D1F50300487E58 /* Preview Assets.xcassets */; };
 		5F2193A627DB36C8008DE4A2 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2193A527DB36C8008DE4A2 /* MapViewModel.swift */; };
@@ -28,6 +31,9 @@
 		1840412727DB2C6700C8EC03 /* StopWatchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchManager.swift; sourceTree = "<group>"; };
 		1840412927DB2CA000C8EC03 /* WorkoutsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsView.swift; sourceTree = "<group>"; };
 		1840412B27DB2CD900C8EC03 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		18C75E1527EDAD3E00A65215 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		18C75E1727EDB73C00A65215 /* WorkoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewModel.swift; sourceTree = "<group>"; };
+		18C75E1927EDB80400A65215 /* WorkoutRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutRowView.swift; sourceTree = "<group>"; };
 		18DA8C3B27D1F50200487E58 /* Workout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18DA8C3E27D1F50200487E58 /* WorkoutApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutApp.swift; sourceTree = "<group>"; };
 		18DA8C4527D1F50300487E58 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -104,6 +110,7 @@
 			children = (
 				5FEFF51A27D1FDF80016F525 /* ProfileViewModel.swift */,
 				5F2193A527DB36C8008DE4A2 /* MapViewModel.swift */,
+				18C75E1727EDB73C00A65215 /* WorkoutViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -116,6 +123,8 @@
 				1840412527DB2C3400C8EC03 /* TimerView.swift */,
 				1840412927DB2CA000C8EC03 /* WorkoutsView.swift */,
 				5F2193A727DB46DB008DE4A2 /* mapView.swift */,
+				18C75E1527EDAD3E00A65215 /* DetailView.swift */,
+				18C75E1927EDB80400A65215 /* WorkoutRowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -189,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18C75E1827EDB73C00A65215 /* WorkoutViewModel.swift in Sources */,
 				1840412627DB2C3400C8EC03 /* TimerView.swift in Sources */,
 				1840412827DB2C6700C8EC03 /* StopWatchManager.swift in Sources */,
 				5F2193AA27DB4D5F008DE4A2 /* MapModel.swift in Sources */,
@@ -196,8 +206,10 @@
 				1840412C27DB2CD900C8EC03 /* Workout.swift in Sources */,
 				5F2193A627DB36C8008DE4A2 /* MapViewModel.swift in Sources */,
 				5F2193A827DB46DB008DE4A2 /* mapView.swift in Sources */,
+				18C75E1627EDAD3E00A65215 /* DetailView.swift in Sources */,
 				1840412427DB2BF000C8EC03 /* AppTabView.swift in Sources */,
 				18DA8C3F27D1F50200487E58 /* WorkoutApp.swift in Sources */,
+				18C75E1A27EDB80400A65215 /* WorkoutRowView.swift in Sources */,
 				5FEFF51727D1FA220016F525 /* ProfileView.swift in Sources */,
 				5FEFF51927D1FC090016F525 /* User.swift in Sources */,
 				5FEFF51B27D1FDF80016F525 /* ProfileViewModel.swift in Sources */,

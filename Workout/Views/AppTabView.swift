@@ -9,7 +9,9 @@ import SwiftUI
 
 struct AppTabView: View {
     @State var mapViewModel : MapViewModel
-    var profilViewModel : ProfileViewModel = ProfileViewModel()
+    var profilViewModel: ProfileViewModel = ProfileViewModel()
+    var workoutViewModel: WorkoutViewModel = WorkoutViewModel()
+    
     var body: some View {
         TabView {
             TimerView(mapViewModel: mapViewModel)
@@ -18,7 +20,7 @@ struct AppTabView: View {
                     Text("Timer")
                 }
             
-            WorkoutsView(mapViewModel: mapViewModel)
+            WorkoutsView(mapViewModel: mapViewModel, workoutViewModel: workoutViewModel)
                 .tabItem {
                     Image(systemName: "list.dash")
                     Text("Workouts")

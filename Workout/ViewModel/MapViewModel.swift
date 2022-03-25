@@ -19,8 +19,13 @@ class MapViewModel: NSObject,ObservableObject,CLLocationManagerDelegate{
         super.init()
         
         print("Création du map view model")
+        setMapTest()
         
         
+    }
+    
+    func setMapTest() {
+        maps.append(MapModel())
     }
     
     func startRecord(){

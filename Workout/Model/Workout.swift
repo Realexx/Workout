@@ -28,7 +28,18 @@ enum Categorie: String, CaseIterable {
 struct Workout: Identifiable {
     var id = UUID()
     
-    var category: Category
-    var time: String
-    var distance: String
+    var categorie: Categorie
+    var time: Double
+    var distance: Double
+    var date: Date
+  
+    static var workoutsData = [
+        Workout(categorie: .Riding, time: 46.00, distance: 300, date: Date()),
+        Workout(categorie: .Walking, time: 46.00, distance: 300, date: Date()),
+        Workout(categorie: .Running, time: 46.00, distance: 300, date: Date()),
+        Workout(categorie: .Riding, time: 46.00, distance: 300, date: Date()),
+        
+    ]
 }
+
+
